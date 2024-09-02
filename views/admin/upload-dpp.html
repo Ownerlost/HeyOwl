@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload DPPs</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+    {% include 'layouts/main.html' %}
+
+    <div class="admin-upload">
+        <h2>Upload Daily Practice Papers (DPPs)</h2>
+        <form action="/admin/upload-dpp" method="post" enctype="multipart/form-data">
+            <label for="exam">Select Exam:</label>
+            <select id="exam" name="exam" required>
+                <option value="nda">NDA</option>
+                <option value="airforce">Airforce</option>
+                <option value="navy">Navy</option>
+            </select>
+
+            <label for="file">Upload DPPs (JSON format):</label>
+            <input type="file" id="file" name="file" accept=".json" required>
+
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    {% include 'partials/social-icons.html' %}
+    {% include 'partials/notifications.html' %}
+</body>
+</html>

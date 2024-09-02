@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Test</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="/public/js/scripts.js" defer></script>
+</head>
+<body>
+    {% include 'layouts/main.html' %}
+
+    <div class="test-container">
+        <h2>{{ test.title }}</h2>
+        <form action="/test/{{ test._id }}/submit" method="POST" id="test-form">
+            {% for question in test.questions %}
+                <div class="question">
+                    <p><strong>Q{{ loop.index }}:</strong> {{ question.text }}</p>
+                    <div class="options">
+                        {% for option in question.options %}
+                            <div class="option">
+                                <input type="radio" id="q{{ loop.parent.index }}_o{{ loop.index }}" name="answers[q{{ loop.parent.index }}]" value="{{ option }}" required>
+                                <label for="q{{ loop.parent.index }}_o{{ loop.index }}">{{ option }}</label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Submit Test</button>
+        </form>
+    </div>
+
+    {% include 'partials/social-icons.html' %}
+    {% include 'partials/notifications.html' %}
+</body>
+</html>

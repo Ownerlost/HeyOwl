@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | My Test Series Website</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+    {% include 'layouts/main.html' %}
+
+    <div class="home">
+        <header>
+            <h1>Welcome to My Test Series Website</h1>
+            <p>Your go-to platform for test series, PYQs, and DPPs.</p>
+        </header>
+
+        <section class="exams">
+            <h2>Choose Your Exam</h2>
+            <ul>
+                <li><a href="/exam/nda.html">NDA</a></li>
+                <li><a href="/exam/airforce.html">Airforce</a></li>
+                <li><a href="/exam/navy.html">Navy</a></li>
+            </ul>
+        </section>
+
+        <section class="features">
+            <h2>Features</h2>
+            <div class="feature">
+                <h3>Test Series</h3>
+                <p>Access a wide range of test series for different exams to boost your preparation.</p>
+            </div>
+            <div class="feature">
+                <h3>Previous Year Questions (PYQs)</h3>
+                <p>Review past years' questions to understand exam patterns and question types.</p>
+            </div>
+            <div class="feature">
+                <h3>Daily Practice Papers (DPPs)</h3>
+                <p>Engage in daily practice with our carefully crafted practice papers.</p>
+            </div>
+        </section>
+
+        <section class="about">
+            <h2>About Us</h2>
+            <p>We are committed to providing high-quality test preparation resources for students preparing for competitive exams. Our platform offers a range of test series, PYQs, and DPPs to help you achieve your goals.</p>
+        </section>
+    </div>
+
+    {% include 'partials/social-icons.html' %}
+    {% include 'partials/notifications.html' %}
+</body>
+</html>

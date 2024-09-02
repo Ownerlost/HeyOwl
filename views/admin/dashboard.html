@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+    {% include 'layouts/main.html' %}
+
+    <div class="admin-dashboard">
+        <h2>Admin Dashboard</h2>
+        <p>Welcome to the admin dashboard. Use the links below to manage test series, PYQs, and DPPs.</p>
+        
+        <div class="admin-links">
+            <h3>Manage Content</h3>
+            <ul>
+                <li><a href="/admin/upload-test-series.html">Upload Test Series</a></li>
+                <li><a href="/admin/upload-pyq.html">Upload PYQs</a></li>
+                <li><a href="/admin/upload-dpp.html">Upload DPPs</a></li>
+            </ul>
+        </div>
+    </div>
+
+    {% include 'partials/social-icons.html' %}
+    {% include 'partials/notifications.html' %}
+</body>
+</html>

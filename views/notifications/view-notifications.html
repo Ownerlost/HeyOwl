@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Notifications</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+    {% include 'layouts/main.html' %}
+
+    <div class="notifications-view">
+        <h2>View Notifications</h2>
+        
+        <!-- Example of notification list -->
+        <ul class="notifications-list">
+            <!-- Iterate through notifications -->
+            {% for notification in notifications %}
+                <li class="notification-item">
+                    <div class="notification-content">
+                        <p><strong>{{ notification.title }}</strong></p>
+                        <p>{{ notification.message }}</p>
+                        <p><small>Received on: {{ notification.date }}</small></p>
+                    </div>
+                </li>
+            {% else %}
+                <p>No notifications to display.</p>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% include 'partials/social-icons.html' %}
+    {% include 'partials/notifications.html' %}
+</body>
+</html>

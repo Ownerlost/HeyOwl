@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airforce Exam</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+    {% include 'layouts/main.html' %}
+
+    <div class="exam-container">
+        <h2>Airforce Exam</h2>
+        <p>Welcome to the Airforce Exam section. Select a test series or practice questions below to start preparing for the Airforce exam.</p>
+        
+        <!-- Example test series and PYQs links -->
+        <div class="exam-links">
+            <h3>Test Series</h3>
+            <ul>
+                {% for testSeries in airforceTestSeries %}
+                    <li><a href="/test/{{ testSeries._id }}">{{ testSeries.title }}</a></li>
+                {% endfor %}
+            </ul>
+
+            <h3>Previous Year Questions (PYQs)</h3>
+            <ul>
+                {% for pyq in airforcePYQs %}
+                    <li><a href="/test/{{ pyq._id }}">{{ pyq.title }}</a></li>
+                {% endfor %}
+            </ul>
+
+            <h3>Daily Practice Papers (DPPs)</h3>
+            <ul>
+                {% for dpp in airforceDPPs %}
+                    <li><a href="/test/{{ dpp._id }}">{{ dpp.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    {% include 'partials/social-icons.html' %}
+    {% include 'partials/notifications.html' %}
+</body>
+</html>

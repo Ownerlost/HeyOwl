@@ -1,0 +1,13 @@
+<div class="notifications">
+    {% if notifications %}
+        <ul>
+            {% for notification in notifications %}
+                <li class="{{ notification.type }}">
+                    {{ notification.message }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No new notifications</p>
+    {% endif %}
+</div>

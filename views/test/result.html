@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Result</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+    {% include 'layouts/main.html' %}
+
+    <div class="result-container">
+        <h2>{{ result.testName }} - Results</h2>
+        <p><strong>Date Taken:</strong> {{ result.dateTaken }}</p>
+        <p><strong>Score:</strong> {{ result.score }} / {{ result.totalQuestions }}</p>
+        <p><strong>Percentage:</strong> {{ result.percentage }}%</p>
+
+        <div class="detailed-results">
+            {% for question in result.questions %}
+                <div class="question-result">
+                    <p><strong>Q{{ loop.index }}:</strong> {{ question.text }}</p>
+                    <p><strong>Your Answer:</strong> {{ question.userAnswer }}</p>
+                    <p><strong>Correct Answer:</strong> {{ question.correctAnswer }}</p>
+                    {% if question.userAnswer == question.correctAnswer %}
+                        <p class="correct">Correct</p>
+                    {% else %}
+                        <p class="incorrect">Incorrect</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <a href="/test/{{ result.testId }}/review" class="btn">Review Test</a>
+        <a href="/user/results" class="btn btn-secondary">Back to Results</a>
+    </div>
+
+    {% include 'partials/social-icons.html' %}
+    {% include 'partials/notifications.html' %}
+</body>
+</html>
